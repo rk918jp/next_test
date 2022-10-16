@@ -8,21 +8,27 @@ import { CacheProvider } from "@emotion/react"
 import createCache from "@emotion/cache"
 import ChangeTheme from "../components/ChangeTheme"
 import { CssBaseline } from "@mui/material"
+import { SessionProvider } from "next-auth/react"
 
 const cache = createCache({
     key: "css",
     prepend: true,
 })
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }): ReactElement => {
+const MyApp: FC<AppProps> = ({
+    Component,
+    pageProps: { session, ...pageProps },
+}): ReactElement => {
     return (
         <StyledEngineProvider injectFirst>
             <CacheProvider value={cache}>
                 <ChangeTheme>
                     <CssBaseline />
-                    <ReduxProvider store={store}>
-                        <Component {...pageProps} />
-                    </ReduxProvider>
+                    <SessionProvider session={session}>
+                        <ReduxProvider store={store}>
+                            <Component {...pageProps} />
+                        </ReduxProvider>
+                    </SessionProvider>
                 </ChangeTheme>
             </CacheProvider>
         </StyledEngineProvider>

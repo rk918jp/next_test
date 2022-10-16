@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react'
-import { Button, ButtonProps } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import styles from '../styles/SecondaryButton.module.scss'
+import React, { FC, ReactNode } from "react"
+import { Button, ButtonProps } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import styles from "../styles/SecondaryButton.module.scss"
 
 interface Props {
     className?: string
@@ -13,7 +13,7 @@ const SecondaryButton: FC<Props & ButtonProps> = ({
     children,
     ...rest
 }) => {
-    const color = rest.color ? rest.color : 'primary'
+    const color = rest.color ? rest.color : "primary"
 
     const StyledButton = styled(Button)(
         ({ theme }) => `
@@ -28,7 +28,7 @@ const SecondaryButton: FC<Props & ButtonProps> = ({
     return (
         <StyledButton
             {...rest}
-            className={styles.dialogButton + ' ' + className}
+            className={styles.dialogButton + " " + className}
         >
             {children}
         </StyledButton>

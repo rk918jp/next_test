@@ -1,16 +1,16 @@
-import '../styles/globals.css'
-import { AppProps } from 'next/app'
-import React, { FC, ReactElement } from 'react'
-import { StyledEngineProvider } from '@mui/material/styles'
-import { Provider as ReduxProvider } from 'react-redux'
-import { store } from '../src/ui/redux/store'
-import { CacheProvider } from '@emotion/react'
-import createCache from '@emotion/cache'
-import ChangeTheme from '../components/ChangeTheme'
-import { CssBaseline } from '@mui/material'
+import "../styles/globals.css"
+import { AppProps } from "next/app"
+import React, { FC, ReactElement } from "react"
+import { StyledEngineProvider } from "@mui/material/styles"
+import { Provider as ReduxProvider } from "react-redux"
+import { store } from "../src/ui/redux/store"
+import { CacheProvider } from "@emotion/react"
+import createCache from "@emotion/cache"
+import ChangeTheme from "../components/ChangeTheme"
+import { CssBaseline } from "@mui/material"
 
 const cache = createCache({
-    key: 'css',
+    key: "css",
     prepend: true,
 })
 

@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './CounterSlice'
+import { configureStore } from "@reduxjs/toolkit"
+import counterReducer from "./CounterSlice"
 
 /**
  * Redux allows for global state in react components:

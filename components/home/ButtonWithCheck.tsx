@@ -1,7 +1,7 @@
-import React, { FC, MouseEventHandler, useState } from 'react'
-import { Button } from '@mui/material'
-import styles from '../../styles/Default.module.scss'
-import CheckIcon from '@mui/icons-material/Check'
+import React, { FC, MouseEventHandler, useState } from "react"
+import { Button } from "@mui/material"
+import styles from "../../styles/Default.module.scss"
+import CheckIcon from "@mui/icons-material/Check"
 
 interface Props {
     label: string
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-    label: '',
+    label: "",
 }
 
 const ButtonWithCheck: FC<Props> = ({ label, disabled = false, onClick }) => {
@@ -32,7 +32,7 @@ const ButtonWithCheck: FC<Props> = ({ label, disabled = false, onClick }) => {
             >
                 {label}
             </Button>
-            <CheckIcon htmlColor={buttonPressed ? '' : 'transparent'} />
+            <CheckIcon htmlColor={buttonPressed ? "" : "transparent"} />
         </div>
     )
 }

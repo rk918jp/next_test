@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import React, { MouseEvent } from 'react'
+import type { NextPage } from "next"
+import React, { MouseEvent } from "react"
 
-import Page from '../components/Page'
+import Page from "../components/Page"
 
-import Header from '../components/Header'
-import styles from '../styles/Landing.module.scss'
+import Header from "../components/Header"
+import styles from "../styles/Landing.module.scss"
 import {
     Button,
     Checkbox,
@@ -15,31 +15,31 @@ import {
     RadioGroup,
     TextField,
     useMediaQuery,
-} from '@mui/material'
-import { scroller } from 'react-scroll'
-import MainButton from '../components/MainButton'
-import DashboardIcon from '@mui/icons-material/Dashboard'
-import ExpandingCard from '../components/ExpandingCard'
-import { literals } from '../src/ui/Literals'
-import SecondaryButton from '../components/SecondaryButton'
-import InfoArea from '../components/InfoArea'
-import AboutUsSection from '../components/landing/AboutUsSection'
-import SubscribeSection from '../components/landing/SubscribeSection'
+} from "@mui/material"
+import { scroller } from "react-scroll"
+import MainButton from "../components/MainButton"
+import DashboardIcon from "@mui/icons-material/Dashboard"
+import ExpandingCard from "../components/ExpandingCard"
+import { literals } from "../src/ui/Literals"
+import SecondaryButton from "../components/SecondaryButton"
+import InfoArea from "../components/InfoArea"
+import AboutUsSection from "../components/landing/AboutUsSection"
+import SubscribeSection from "../components/landing/SubscribeSection"
 
 const Landing: NextPage = () => {
     function scrollTo<T>(
         event: MouseEvent<T>,
-        destination: 'subscribe' | 'components' | 'about'
+        destination: "subscribe" | "components" | "about"
     ) {
         event.preventDefault()
         const navbarHeight = 50
         scroller.scrollTo(destination, {
-            smooth: 'easeInOutQuad',
+            smooth: "easeInOutQuad",
             offset: -navbarHeight,
         })
     }
 
-    const smallScreenSize = useMediaQuery('(min-width:600px)')
+    const smallScreenSize = useMediaQuery("(min-width:600px)")
 
     function createNavBar() {
         return (
@@ -49,14 +49,14 @@ const Landing: NextPage = () => {
                         <Link
                             href="/"
                             className={styles.navbarLink}
-                            onClick={(e) => scrollTo(e, 'components')}
+                            onClick={(e) => scrollTo(e, "components")}
                         >
                             Components
                         </Link>
                         <Link
                             href="/"
                             className={styles.navbarLink}
-                            onClick={(e) => scrollTo(e, 'about')}
+                            onClick={(e) => scrollTo(e, "about")}
                         >
                             About
                         </Link>
@@ -77,7 +77,7 @@ const Landing: NextPage = () => {
             navbarLinks={createNavBar()}
             header={
                 <Header
-                    onClick={(e) => scrollTo(e, 'subscribe')}
+                    onClick={(e) => scrollTo(e, "subscribe")}
                     navbarLinks={createNavBar()}
                 />
             }
@@ -166,7 +166,7 @@ const Landing: NextPage = () => {
                         <InfoArea
                             icon={
                                 <DashboardIcon
-                                    style={{ width: '100%', height: '100%' }}
+                                    style={{ width: "100%", height: "100%" }}
                                 />
                             }
                             title="Info Area"
@@ -176,7 +176,7 @@ const Landing: NextPage = () => {
                             vertical
                             icon={
                                 <DashboardIcon
-                                    style={{ width: '100%', height: '100%' }}
+                                    style={{ width: "100%", height: "100%" }}
                                 />
                             }
                             title="Info Area Vertical"
@@ -186,7 +186,7 @@ const Landing: NextPage = () => {
                             lightText
                             icon={
                                 <DashboardIcon
-                                    style={{ width: '100%', height: '100%' }}
+                                    style={{ width: "100%", height: "100%" }}
                                 />
                             }
                             title="Info Area Light Text"

@@ -1,13 +1,13 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState } from "react"
 
-import { Checkbox, FormControlLabel, TextField } from '@mui/material'
-import styles from '../../styles/SubscribeSection.module.scss'
-import GridContainer from '../GridContainer'
-import GridItem from '../GridItem'
-import MainButton from '../MainButton'
-import { isFailure } from '../../src/domain/FunctionalTypes'
-import Link from 'next/link'
-import { newSubscription } from '../../src/domain/Subscription'
+import { Checkbox, FormControlLabel, TextField } from "@mui/material"
+import styles from "../../styles/SubscribeSection.module.scss"
+import GridContainer from "../GridContainer"
+import GridItem from "../GridItem"
+import MainButton from "../MainButton"
+import { isFailure } from "../../src/domain/FunctionalTypes"
+import Link from "next/link"
+import { newSubscription } from "../../src/domain/Subscription"
 
 interface Props {
     onSubscribe?: (email: string) => void
@@ -18,30 +18,30 @@ const defaultProps: Props = {
     onSubscribe: () => {
         /* Do nothing */
     },
-    className: '',
+    className: "",
 }
 
 const SubscribeSection: FC<Props> = ({ onSubscribe, className }) => {
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState("")
     const [success, setSuccess] = useState(false)
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState("")
     const [consentGiven, setConsentGiven] = useState(false)
 
-    const hasError: boolean = message !== null && message !== ''
+    const hasError: boolean = message !== null && message !== ""
 
     return (
         <div>
             <p className={styles.teaser}>
-                Clone{' '}
+                Clone{" "}
                 <a href="https://github.com/liebharc/nextjs-mui-starter">
                     https://github.com/liebharc/nextjs-mui-starter
-                </a>{' '}
+                </a>{" "}
                 to get started. It&apos;s free!
             </p>
             {success ? (
                 <p className={styles.messageSuccess}>
                     Thanks! Note that this button is only a demo. To get in
-                    touch with us check{' '}
+                    touch with us check{" "}
                     <a href="https://github.com/liebharc/nextjs-mui-starter">
                         https://github.com/liebharc/nextjs-mui-starter
                     </a>
@@ -49,7 +49,7 @@ const SubscribeSection: FC<Props> = ({ onSubscribe, className }) => {
             ) : (
                 <GridContainer
                     className={
-                        styles.subscribeSectionContainer + ' ' + className
+                        styles.subscribeSectionContainer + " " + className
                     }
                 >
                     <GridItem xs={12} sm={12} md={8}>
@@ -81,7 +81,7 @@ const SubscribeSection: FC<Props> = ({ onSubscribe, className }) => {
                                     onSubscribe(email)
                                 }
 
-                                setMessage('')
+                                setMessage("")
                                 setSuccess(true)
                             }}
                         >
@@ -100,7 +100,7 @@ const SubscribeSection: FC<Props> = ({ onSubscribe, className }) => {
                             }
                             label={
                                 <p>
-                                    <b>Yes I want to be contacted</b>,{' '}
+                                    <b>Yes I want to be contacted</b>,{" "}
                                     <Link href="/privacy">privacy</Link> applies
                                 </p>
                             }

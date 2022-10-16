@@ -1,6 +1,6 @@
-import React, { FC, ReactNode } from 'react'
-import { GridProps, PaletteMode } from '@mui/material'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import React, { FC, ReactNode } from "react"
+import { GridProps, PaletteMode } from "@mui/material"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 
 interface Props {
     children?: ReactNode
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-    variant: 'light',
+    variant: "light",
 }
 
 const ChangeTheme: FC<Props & GridProps> = ({ children, variant }) => {
@@ -17,21 +17,21 @@ const ChangeTheme: FC<Props & GridProps> = ({ children, variant }) => {
         palette: {
             mode: variant,
             text: {
-                primary: variant === 'light' ? '#444' : '#ccc',
+                primary: variant === "light" ? "#444" : "#ccc",
             },
         },
         components: {
             MuiTextField: {
                 styleOverrides: {
                     root: {
-                        margin: '3px',
+                        margin: "3px",
                     },
                 },
             },
             MuiButton: {
                 styleOverrides: {
                     root: {
-                        margin: '1px',
+                        margin: "1px",
                     },
                 },
             },

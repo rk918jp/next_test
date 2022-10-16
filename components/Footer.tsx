@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import styles from '../styles/Footer.module.scss'
-import Link from 'next/link'
+import React, { FC } from "react"
+import styles from "../styles/Footer.module.scss"
+import Link from "next/link"
 
-import { DateTime } from 'luxon'
-import { List, ListItem } from '@mui/material'
-import { Mail, Twitter, Favorite, GitHub } from '@mui/icons-material'
-import { literals } from '../src/ui/Literals'
+import { DateTime } from "luxon"
+import { List, ListItem } from "@mui/material"
+import { Mail, Twitter, Favorite, GitHub } from "@mui/icons-material"
+import { literals } from "../src/ui/Literals"
 
 const Footer: FC = () => {
     return (
@@ -44,8 +44,8 @@ const Footer: FC = () => {
                 </ListItem>
             </List>
             <footer className={styles.footer}>
-                &copy; {DateTime.now().year}, made with{' '}
-                <Favorite className={styles.icon} /> by{' '}
+                &copy; {DateTime.now().year}, made with{" "}
+                <Favorite className={styles.icon} /> by{" "}
                 <a href="https://growtogether.team">
                     https://growtogether.team
                 </a>

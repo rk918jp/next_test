@@ -8,12 +8,35 @@ import { CacheProvider } from "@emotion/react"
 import createCache from "@emotion/cache"
 import ChangeTheme from "../components/ChangeTheme"
 import { CssBaseline } from "@mui/material"
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider, useSession } from "next-auth/react"
+import { useRouter } from "next/router"
 
 const cache = createCache({
     key: "css",
     prepend: true,
 })
+
+// 未認証でログインページに遷移させる
+const NeedLogin: FC = (props) => {
+    const router = useRouter()
+    const { status, data } = useSession({ required: true })
+    // 未認証かつログインページでないならリダイレクト
+    React.useEffect(() => {
+        if (
+            status !== "loading" &&
+            !data &&
+            ["/login"].includes(router.pathname)
+        ) {
+            router.push("/login")
+        }
+    }, [status, data])
+
+    // ローディング中はローディング表示
+    if (status === "loading") {
+        return <>loading...</>
+    }
+    return <>{props.children}</>
+}
 
 const MyApp: FC<AppProps> = ({
     Component,
@@ -26,7 +49,9 @@ const MyApp: FC<AppProps> = ({
                     <CssBaseline />
                     <SessionProvider session={session}>
                         <ReduxProvider store={store}>
-                            <Component {...pageProps} />
+                            <NeedLogin>
+                                <Component {...pageProps} />
+                            </NeedLogin>
                         </ReduxProvider>
                     </SessionProvider>
                 </ChangeTheme>

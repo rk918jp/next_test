@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import React, { FC } from 'react'
-import styles from '../styles/Default.module.scss'
+import Link from "next/link"
+import React, { FC } from "react"
+import styles from "../styles/Default.module.scss"
 
 const DefaultNavbarLinks: FC = () => {
     return (

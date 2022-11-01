@@ -1,7 +1,7 @@
-import { Result, failure, success } from './FunctionalTypes'
+import { Result, failure, success } from "./FunctionalTypes"
 
 export class Subscription {
-    email = ''
+    email = ""
 
     public constructor(init?: Partial<Subscription>) {
         Object.assign(this, init)
@@ -20,10 +20,10 @@ export function newSubscription(
     consentGiven: boolean
 ): Result<Subscription, string> {
     if (!consentGiven) {
-        return failure('We need your consent to contact you')
+        return failure("We need your consent to contact you")
     }
     if (!email || !validateEmail(email)) {
-        return failure('We need your email to contact you')
+        return failure("We need your email to contact you")
     }
 
     return success(new Subscription({ email: email }))

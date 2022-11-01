@@ -1,14 +1,14 @@
-import type { NextPage } from 'next'
-import React from 'react'
+import type { NextPage } from "next"
+import React from "react"
 
-import Page from '../components/Page'
-import { literals } from '../src/ui/Literals'
-import styles from '../styles/Blog.module.scss'
-import Image from 'next/image'
+import Page from "../components/Page"
+import { literals } from "../src/ui/Literals"
+import styles from "../styles/Blog.module.scss"
+import Image from "next/image"
 
-import summaries from '../content/summary.json'
-import { formatPostDate, parsePostDate } from '../src/ui/Blog'
-import SocialsWrapper from '../components/blog/SocialsWrapper'
+import summaries from "../content/summary.json"
+import { formatPostDate, parsePostDate } from "../src/ui/Blog"
+import SocialsWrapper from "../components/blog/SocialsWrapper"
 
 const Blog: NextPage = () => {
     return (
@@ -37,8 +37,8 @@ const Blog: NextPage = () => {
                                             <a
                                                 href={`/blog/${encodeURIComponent(
                                                     post.base.replace(
-                                                        '.json',
-                                                        ''
+                                                        ".json",
+                                                        ""
                                                     )
                                                 )}`}
                                             >
@@ -56,7 +56,7 @@ const Blog: NextPage = () => {
                                         <a
                                             className={styles.postTitle}
                                             href={`/blog/${encodeURIComponent(
-                                                post.base.replace('.json', '')
+                                                post.base.replace(".json", "")
                                             )}`}
                                         >
                                             {post.title}
@@ -64,17 +64,17 @@ const Blog: NextPage = () => {
                                     </div>
                                     <div className={styles.postMetaInfo}>
                                         <p>
-                                            {formatPostDate(post.date)}{' '}
+                                            {formatPostDate(post.date)}{" "}
                                             {post.tags}
                                         </p>
                                         <hr
                                             className={styles.postMetaInfoSep}
                                         />
                                     </div>
-                                    <p>{post.preview + ' ...'}</p>
+                                    <p>{post.preview + " ..."}</p>
                                     <a
                                         href={`/blog/${encodeURIComponent(
-                                            post.base.replace('.json', '')
+                                            post.base.replace(".json", "")
                                         )}`}
                                     >
                                         Read more

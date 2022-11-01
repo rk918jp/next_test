@@ -1,13 +1,13 @@
-import React, { FC } from 'react'
-import styles from '../../styles/LandingSections.module.scss'
-import GridContainer from '../GridContainer'
-import GridItem from '../GridItem'
-import face1Pic from '../../public/img/faces/corset-g2b91c962f_1280.jpg'
-import face2Pic from '../../public/img/faces/woman-g53aebefef_1920.jpg'
-import Image from 'next/image'
-import InfoArea from '../InfoArea'
-import { Button } from '@mui/material'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import React, { FC } from "react"
+import styles from "../../styles/LandingSections.module.scss"
+import GridContainer from "../GridContainer"
+import GridItem from "../GridItem"
+import face1Pic from "../../public/img/faces/corset-g2b91c962f_1280.jpg"
+import face2Pic from "../../public/img/faces/woman-g53aebefef_1920.jpg"
+import Image from "next/image"
+import InfoArea from "../InfoArea"
+import { Button } from "@mui/material"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
 
 const AboutUsSection: FC = () => {
     return (

@@ -1,11 +1,11 @@
-import React, { FC, ReactNode } from 'react'
-import { Card } from '@mui/material'
-import styles from '../styles/Page.module.scss'
-import Head from 'next/head'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import ShortHeader from './ShortHeader'
-import DefaultNavbarLinks from './DefaultNavbarLinks'
+import React, { FC, ReactNode } from "react"
+import { Card } from "@mui/material"
+import styles from "../styles/Page.module.scss"
+import Head from "next/head"
+import Navbar from "./Navbar"
+import Footer from "./Footer"
+import ShortHeader from "./ShortHeader"
+import DefaultNavbarLinks from "./DefaultNavbarLinks"
 
 interface Props {
     title: string
@@ -19,8 +19,8 @@ interface Props {
 }
 
 const defaultProps: Props = {
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     header: <ShortHeader />,
     navbarLinks: <DefaultNavbarLinks />,
     navbarMenu: false,

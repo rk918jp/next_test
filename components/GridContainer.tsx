@@ -1,6 +1,6 @@
-import React, { FC, ReactNode } from 'react'
-import { Grid, GridProps } from '@mui/material'
-import styles from '../styles/Grid.module.scss'
+import React, { FC, ReactNode } from "react"
+import { Grid, GridProps } from "@mui/material"
+import styles from "../styles/Grid.module.scss"
 
 interface Props {
     className?: string
@@ -16,7 +16,7 @@ const GridContainer: FC<Props & GridProps> = ({
         <Grid
             container
             {...rest}
-            className={styles.gridContainer + ' ' + className}
+            className={styles.gridContainer + " " + className}
         >
             {children}
         </Grid>

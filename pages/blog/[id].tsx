@@ -1,15 +1,15 @@
-import type { GetServerSideProps, NextPage } from 'next'
-import React from 'react'
+import type { GetServerSideProps, NextPage } from "next"
+import React from "react"
 
-import Page from '../../components/Page'
-import ErrorPage from 'next/error'
-import styles from '../../styles/Blog.module.scss'
-import Link from 'next/link'
-import { formatPostDate } from '../../src/ui/Blog'
-import { Mail, Twitter } from '@mui/icons-material'
-import Image from 'next/image'
-import { literals } from '../../src/ui/Literals'
-import { defaultErrorHandler } from '../../src/ui/DefaultErrorHandler'
+import Page from "../../components/Page"
+import ErrorPage from "next/error"
+import styles from "../../styles/Blog.module.scss"
+import Link from "next/link"
+import { formatPostDate } from "../../src/ui/Blog"
+import { Mail, Twitter } from "@mui/icons-material"
+import Image from "next/image"
+import { literals } from "../../src/ui/Literals"
+import { defaultErrorHandler } from "../../src/ui/DefaultErrorHandler"
 
 interface Post {
     title: string
@@ -25,12 +25,12 @@ interface Props {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    if (!context.params || !context.params['id']) {
+    if (!context.params || !context.params["id"]) {
         return {
             props: {},
         }
     }
-    const postId = context.params['id']
+    const postId = context.params["id"]
     return import(`../../content/${postId}.json`)
         .then((d) => {
             return {

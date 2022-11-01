@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import ReactPlayer from 'react-player'
+import React, { FC } from "react"
+import ReactPlayer from "react-player"
 
 interface Props {
     url: string
@@ -13,19 +13,19 @@ const ReferencesSection: FC<Props> = ({ url, onInteraction }) => {
             controls={true}
             light={true}
             onStart={() => {
-                onInteraction('video', 'start')
+                onInteraction("video", "start")
             }}
             onPlay={() => {
-                onInteraction('video', 'play')
+                onInteraction("video", "play")
             }}
             onProgress={(e) => {
-                onInteraction('video', e.playedSeconds + ' seconds')
+                onInteraction("video", e.playedSeconds + " seconds")
             }}
             onPause={() => {
-                onInteraction('video', 'pause')
+                onInteraction("video", "pause")
             }}
             onEnded={() => {
-                onInteraction('video', 'ended')
+                onInteraction("video", "ended")
             }}
         />
     )

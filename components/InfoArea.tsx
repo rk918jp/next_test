@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from 'react'
-import styles from '../styles/InfoArea.module.scss'
-import classNames from 'classnames'
+import React, { FC, ReactNode } from "react"
+import styles from "../styles/InfoArea.module.scss"
+import classNames from "classnames"
 
 interface Props {
-    variant?: 'standard' | 'stretchedImage'
+    variant?: "standard" | "stretchedImage"
     vertical?: boolean
     lightText?: boolean
     className?: string
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-    variant: 'standard',
+    variant: "standard",
     vertical: false,
     title: null,
     lightText: false,
@@ -52,7 +52,7 @@ const InfoArea: FC<Props> = ({
             <div className={iconWrapperClasses}>
                 <div
                     className={
-                        variant === 'stretchedImage'
+                        variant === "stretchedImage"
                             ? styles.imageLimits
                             : iconClasses
                     }

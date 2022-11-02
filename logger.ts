@@ -8,17 +8,40 @@ export const logger = pino({
             {
                 target: 'pino/file',
                 options: {
-                    destination: "logs/out.log",
-                    mkdir:true,
+                    destination: 'logs/out.log',
+                    mkdir: true,
                 },
                 level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
             },
             // コンソール
             {
-                target: "pino-pretty",
+                target: 'pino-pretty',
                 options: {},
                 level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-            }
+            },
+        ],
+    },
+})
+
+export const sqlLogger = pino({
+    level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+    transport: {
+        targets: [
+            // ファイル出力
+            {
+                target: 'pino/file',
+                options: {
+                    destination: 'logs/sql-out.log',
+                    mkdir: true,
+                },
+                level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+            },
+            // コンソール
+            {
+                target: 'pino-pretty',
+                options: {},
+                level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+            },
         ],
     },
 })

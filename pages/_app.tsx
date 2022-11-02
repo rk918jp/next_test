@@ -19,13 +19,13 @@ const cache = createCache({
 // 未認証でログインページに遷移させる
 const NeedLogin: FC = (props) => {
     const router = useRouter()
-    const { status, data } = useSession({ required: true })
+    const { status, data } = useSession()
     // 未認証かつログインページでないならリダイレクト
     React.useEffect(() => {
         if (
             status !== "loading" &&
             !data &&
-            ["/login"].includes(router.pathname)
+            !["/login"].includes(router.pathname)
         ) {
             router.push("/login")
         }

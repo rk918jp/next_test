@@ -7,14 +7,14 @@ import Page from "../components/Page"
 import styles from "../styles/Landing.module.scss"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { scroller } from "react-scroll"
-import { logger } from '../logger'
+import { logger } from "../logger"
 
 const Login: NextPage = () => {
     const [userId, setUserId] = React.useState<string | undefined>()
     const [password, setPassword] = React.useState<string | undefined>()
     const session = useSession()
     console.log(session)
-    logger.info("test");
+    logger.info("test")
 
     const scrollTo = <T,>(
         event: MouseEvent<T>,

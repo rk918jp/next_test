@@ -1,5 +1,5 @@
 import "../styles/globals.css"
-import { AppProps } from "next/app"
+import App, { AppContext, AppProps } from 'next/app'
 import React, { FC, ReactElement } from "react"
 import { StyledEngineProvider } from "@mui/material/styles"
 import { Provider as ReduxProvider } from "react-redux"
@@ -10,6 +10,7 @@ import ChangeTheme from "../components/ChangeTheme"
 import { CssBaseline } from "@mui/material"
 import { SessionProvider, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
+import { logger } from '../logger'
 
 const cache = createCache({
     key: "css",
@@ -38,10 +39,11 @@ const NeedLogin: FC = (props) => {
     return <>{props.children}</>
 }
 
-const MyApp: FC<AppProps> = ({
+const MyApp = ({
     Component,
     pageProps: { session, ...pageProps },
-}): ReactElement => {
+} : AppProps): ReactElement => {
+
     return (
         <StyledEngineProvider injectFirst>
             <CacheProvider value={cache}>
@@ -58,5 +60,15 @@ const MyApp: FC<AppProps> = ({
             </CacheProvider>
         </StyledEngineProvider>
     )
+}
+MyApp.getInitialProps = async (context: AppContext) => {
+    const pageProps = await App.getInitialProps(context);
+    const req = context?.ctx?.req;
+    if (req) {
+        const ip = req.headers["x-real-ip"] || req.connection.remoteAddress;
+        logger.info(`${req.method} ${req.url} ${ip}`)
+    }
+
+    return pageProps;
 }
 export default MyApp
